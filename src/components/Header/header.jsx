@@ -5,7 +5,7 @@ export default function Header() {
         <section>
           <div></div>
           <div>
-            <h1>Bora Lá</h1>
+            <h1 className="text-3xl">Bora Lá</h1>
             <span>Hub de Eventos</span>
           </div>
         </section>
