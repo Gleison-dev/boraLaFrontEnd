@@ -9,7 +9,7 @@ export default function Home() {
             placeholder="Bora lá em uma de teatro?"
           />
         </div>
-        <section>
+        <section className="mt-8">
           <div>
             <h1 className="text-5xl text-azul-marinho">Eventos de hoje</h1>
           </div>
