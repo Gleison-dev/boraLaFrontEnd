@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <>
-      <section className="flex flex-col gap-5 w-103 p-4 rounded-2xl bg-creme">
+      <section className="flex flex-col gap-5 w-103 h-220 p-4 rounded-2xl bg-creme">
         <section className="flex justify-around items-center">
           <div className="w-25 h-25 rounded-2xl bg-azul-marinho"> </div>
           <div>
