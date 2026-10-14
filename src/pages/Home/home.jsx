@@ -4,7 +4,7 @@ export default function Home() {
       <section className="w-310 rounded-2xl p-6 bg-creme">
         <div>
           <input
-            className="w-250 h-12 p-2 rounded-xl border outline-none bg-creme"
+            className="w-300 h-12 p-2 rounded-xl border outline-none bg-creme"
             type="text"
             placeholder="Bora lá em uma de teatro?"
           />
