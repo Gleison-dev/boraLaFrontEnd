@@ -4,7 +4,7 @@ import Header from "./components/Header/header";
 export default function App() {
   return (
     <>
-      <div className="flex justify-around p-4">
+      <div>
         <Header />
         <main>
           <Routes></Routes>
