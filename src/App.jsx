@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header/header";
+import Sidebar from "./components/Sidebar/siderbar";
 
 export default function App() {
   return (
     <>
       <div>
-        <Header />
+        <Sidebar />
         <main>
           <Routes></Routes>
         </main>
