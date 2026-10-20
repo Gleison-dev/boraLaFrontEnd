@@ -5,7 +5,7 @@ import Home from "./pages/Home/home";
 export default function App() {
   return (
     <>
-      <div>
+      <div className="flex justify-between">
         <Sidebar />
         <main>
           <Routes>
