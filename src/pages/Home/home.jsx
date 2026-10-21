@@ -25,7 +25,7 @@ export default function Home() {
               <strong>Eventos de hoje</strong>
             </h1>
           </div>
-          <div>
+          <div className="mt-10">
             <CardEvent />
           </div>
         </div>
