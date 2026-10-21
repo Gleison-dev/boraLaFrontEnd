@@ -1,4 +1,5 @@
 import icon_search from "../../assets/icon_search.png";
+import CardEvent from "../../components/CardEvent/cardEvent";
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
             <h1 className="text-4xl text-azul-marinho">
               <strong>Eventos de hoje</strong>
             </h1>
+          </div>
+          <div>
+            <CardEvent />
           </div>
         </div>
       </section>
