@@ -33,7 +33,7 @@ export default function Sidebar() {
           </div>
           <div className="flex justify-center mt-auto">
             <NavLink to="/login">
-              <button className="w-90 h-16 text-2xl rounded-xl cursor-pointer bg-azul-marinho text-creme hover:underline">
+              <button className="w-72 h-16 text-2xl rounded-xl cursor-pointer bg-azul-marinho text-creme hover:underline">
                 Acessar conta
               </button>
             </NavLink>
