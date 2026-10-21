@@ -2,6 +2,7 @@ import icon_config from "../../assets/icon_config.png";
 import icon_house from "../../assets/icon_house.png";
 import icon_categories from "../../assets/icon_categories.png";
 import logo from "../../assets/logo.png";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -31,9 +32,11 @@ export default function Sidebar() {
             </ul>
           </div>
           <div className="flex justify-center mt-auto">
-            <button className="w-90 h-16 text-2xl rounded-xl cursor-pointer bg-azul-marinho text-creme hover:underline">
-              Acessar conta
-            </button>
+            <NavLink to="/login">
+              <button className="w-90 h-16 text-2xl rounded-xl cursor-pointer bg-azul-marinho text-creme hover:underline">
+                Acessar conta
+              </button>
+            </NavLink>
           </div>
         </div>
       </section>
