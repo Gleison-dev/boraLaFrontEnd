@@ -14,20 +14,22 @@ export default function Sidebar() {
           </div>
           <div className="mt-20">
             <ul className="flex flex-col gap-3 text-preto text-2xl">
-              <div className="flex items-center gap-1 cursor-pointer">
-                <img src={icon_house} alt="Ícone de casa" />
-                <li className="hover:underline">Home</li>
-              </div>
-              <div className="flex items-center gap-1 cursor-pointer">
+              <NavLink to="/">
+                <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
+                  <img src={icon_house} alt="Ícone de casa" />
+                  <li>Home</li>
+                </div>
+              </NavLink>
+              <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
                 <img src={icon_categories} alt="Ícone de categoria" />
-                <li className="hover:underline">Categorias</li>
+                <li>Categorias</li>
               </div>
             </ul>
             <hr className="mt-5 mb-5" />
             <ul className="text-preto text-2xl">
-              <div className="flex items-center gap-1 cursor-pointer">
+              <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
                 <img src={icon_config} alt="Ícone de configuração" />
-                <li className="hover:underline">Configurações</li>
+                <li>Configurações</li>
               </div>
             </ul>
           </div>
