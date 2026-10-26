@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import icon_email from "../../assets/icon_email.png";
 import icon_padlock from "../../assets/icon_padlock.png";
 
@@ -50,7 +51,9 @@ export default function Login() {
                 <p>
                   Não tem uma conta? {""}
                   <span className="underline text-azul-marinho">
-                    <strong>Clique aqui!</strong>
+                    <NavLink to="/register">
+                      <strong>Clique aqui!</strong>
+                    </NavLink>
                   </span>
                 </p>
               </div>
