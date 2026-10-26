@@ -2,6 +2,12 @@ import { NavLink } from "react-router-dom";
 import Input from "../../components/Input/input";
 
 export default function Register() {
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+
   return (
     <>
       <section className="w-399 h-screen p-10 bg-creme">
@@ -18,25 +24,33 @@ export default function Register() {
             <form className="grid grid-cols-2 gap-4 items-center">
               <div>
                 <label>Nome</label> <br />
-                <Input type="text" placeholder="Nome" />
+                <Input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Nome"
+                />
               </div>
               <div>
                 <label>Sobrenome</label> <br />
-                <Input type="text" placeholder="Sobrenome" />
+                <Input type="text" value={lastName}
+                  onChange={(e) => setLastName(e.target.value)} placeholder="Sobrenome" />
               </div>
               <div>
                 <label>Email</label> <br />
-                <Input type="text" placeholder="E-mail" />
+                <Input type="text" value={email}
+                  onChange={(e) => setEmail(e.target.value)} placeholder="E-mail" />
               </div>
               <div>
                 <label>Senha</label> <br />
-                <Input type="text" placeholder="Senha" />
+                <Input type="text" value={password}
+                  onChange={(e) => setPassword(e.target.value)} placeholder="Senha" />
               </div>
               <div>
                 <label>Tipo de usuário</label> <br />
                 <select className="w-50 p-2 ring rounded-xl outline-none focus:ring-2 focus:ring-azul-marinho">
-                  <option>PARTICIPANTE</option>
-                  <option>ORGANIZADOR</option>
+                  <option value="PARTICIPANT">PARTICIPANTE</option>
+                  <option value="ORGANIZER">ORGANIZADOR</option>
                 </select>
               </div>
             </form>
