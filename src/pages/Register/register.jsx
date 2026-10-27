@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
 import Input from "../../components/Input/input";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 export default function Register() {
   const [lastName, setLastName] = useState("");
@@ -33,18 +34,30 @@ export default function Register() {
               </div>
               <div>
                 <label>Sobrenome</label> <br />
-                <Input type="text" value={lastName}
-                  onChange={(e) => setLastName(e.target.value)} placeholder="Sobrenome" />
+                <Input
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="Sobrenome"
+                />
               </div>
               <div>
                 <label>Email</label> <br />
-                <Input type="text" value={email}
-                  onChange={(e) => setEmail(e.target.value)} placeholder="E-mail" />
+                <Input
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="E-mail"
+                />
               </div>
               <div>
                 <label>Senha</label> <br />
-                <Input type="text" value={password}
-                  onChange={(e) => setPassword(e.target.value)} placeholder="Senha" />
+                <Input
+                  type="text"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Senha"
+                />
               </div>
               <div>
                 <label>Tipo de usuário</label> <br />
