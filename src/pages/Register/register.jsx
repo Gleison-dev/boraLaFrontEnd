@@ -12,7 +12,9 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     try {
       const response = await api.post("/createUser", {
         name,
