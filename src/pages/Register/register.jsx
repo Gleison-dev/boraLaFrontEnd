@@ -12,7 +12,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
-  const handleRegister = async () => {
+  const handleSubmit = async () => {
     try {
       const response = await api.post("/createUser", {
         name,
@@ -62,62 +62,65 @@ export default function Register() {
                 Crie sua conta e aproveite o melhor hub de eventos!
               </p>
             </div>
-            <form className="grid grid-cols-2 gap-4 items-center">
-              <div>
-                <label>Nome</label> <br />
-                <Input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Nome"
-                />
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-2 gap-5">
+                <div>
+                  <label>Nome</label> <br />
+                  <Input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Nome"
+                  />
+                </div>
+                <div>
+                  <label>Sobrenome</label> <br />
+                  <Input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder="Sobrenome"
+                  />
+                </div>
+                <div>
+                  <label>Email</label> <br />
+                  <Input
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="E-mail"
+                  />
+                </div>
+                <div>
+                  <label>Senha</label> <br />
+                  <Input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Senha"
+                  />
+                </div>
+                <div>
+                  <label>Tipo de usuário</label> <br />
+                  <select
+                    onChange={(e) => setRole(e.target.value)}
+                    className="w-50 p-2 ring rounded-xl outline-none focus:ring-2 focus:ring-azul-marinho"
+                  >
+                    <option value="PARTICIPANT">PARTICIPANTE</option>
+                    <option value="ORGANIZER">ORGANIZADOR</option>
+                  </select>
+                </div>
               </div>
-              <div>
-                <label>Sobrenome</label> <br />
-                <Input
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  placeholder="Sobrenome"
-                />
-              </div>
-              <div>
-                <label>Email</label> <br />
-                <Input
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="E-mail"
-                />
-              </div>
-              <div>
-                <label>Senha</label> <br />
-                <Input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Senha"
-                />
-              </div>
-              <div>
-                <label>Tipo de usuário</label> <br />
-                <select
-                  onChange={(e) => setRole(e.target.value)}
-                  className="w-50 p-2 ring rounded-xl outline-none focus:ring-2 focus:ring-azul-marinho"
+              <div className="flex justify-center mt-5">
+                <button
+                  type="submit"
+                  className="w-150 h-14 rounded-xl text-2xl cursor-pointer text-creme bg-azul-marinho hover:underline"
                 >
-                  <option value="PARTICIPANT">PARTICIPANTE</option>
-                  <option value="ORGANIZER">ORGANIZADOR</option>
-                </select>
+                  Criar conta
+                </button>
               </div>
             </form>
-            <div className="flex justify-center">
-              <button
-                onClick={handleRegister}
-                className="w-150 h-14 rounded-xl text-2xl cursor-pointer text-creme bg-azul-marinho hover:underline"
-              >
-                Criar conta
-              </button>
-            </div>
+
             <hr />
             <div className="flex justify-center">
               <p>
