@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { useState, createContext } from "react";
 import { api } from "../services/api";
 
 export const AuthContext = createContext();
@@ -13,7 +13,7 @@ export function Authprovider({ children }) {
         password,
       });
 
-      const { token } = response.data.login.token;
+      const { token } = response.data.login;
       localStorage.setItem("token", token);
 
       setToken(token);
