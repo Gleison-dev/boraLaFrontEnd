@@ -42,6 +42,19 @@ export default function Sidebar() {
                   </div>
                 </ul>
               </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-around items-center">
+                  <div className="w-20 h-20 rounded-full bg-azul-marinho"></div>
+                  <h2 className="text-lg">
+                    <strong>Thiago da Silva</strong>
+                  </h2>
+                </div>
+                <div>
+                  <button className="w-72 h-16 text-2xl rounded-xl cursor-pointer bg-azul-marinho text-creme hover:underline">
+                    Logout
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
