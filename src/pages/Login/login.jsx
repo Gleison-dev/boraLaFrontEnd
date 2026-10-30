@@ -5,8 +5,9 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Login() {
-  const [password, setPassword] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
@@ -14,11 +15,14 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    setLoading(true);
     const { sucess, message } = await login(email, password);
+    setLoading(false);
 
     if (sucess) {
       navigate("/", { replace: true });
     } else {
+      setLoading(false);
       setMessageError(message);
       setTimeout(() => {
         setMessageError("");
@@ -31,7 +35,7 @@ export default function Login() {
       <section className="w-399 h-screen p-10 bg-creme">
         <div className="flex flex-col justify-center items-center h-full">
           {messageError ? (
-            <div className="w-71 p-2 rounded-xl bg-red-200">
+            <div className="w-90 p-2 rounded-xl bg-red-200">
               <b className="text-red-800">{messageError}</b>
             </div>
           ) : (
@@ -76,12 +80,22 @@ export default function Login() {
                 />
               </div>
               <div>
-                <button
-                  type="submit"
-                  className="w-80 h-14 rounded-xl text-2xl cursor-pointer text-creme bg-azul-marinho hover:bg-blue-900 hover:underline"
-                >
-                  Entrar
-                </button>
+                {loading ? (
+                  <button
+                    disabled
+                    type="submit"
+                    className="w-100 h-14 rounded-xl text-2xl bg-gray-400"
+                  >
+                    Entrando...
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    className="w-100 h-14 rounded-xl text-2xl cursor-pointer text-creme bg-azul-marinho hover:bg-blue-900 hover:underline"
+                  >
+                    Entrar
+                  </button>
+                )}
               </div>
               <hr />
               <div className="flex justify-center">
