@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function Register() {
   const [role, setRole] = useState("PARTICIPANT", "ORGANIZER");
   const [messageError, setMessageError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -16,6 +17,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const response = await api.post("/createUser", {
         name,
         last_name: lastName,
@@ -23,11 +25,13 @@ export default function Register() {
         password,
         role,
       });
+      setLoading(false);
       setMessage(response.data.user);
       setTimeout(() => {
         setMessage("");
       }, 3000);
     } catch (error) {
+      setLoading(false);
       const message =
         error.response?.data?.message || "Erro ao cadastrar usuário.";
       setMessageError(message);
@@ -114,12 +118,22 @@ export default function Register() {
                 </div>
               </div>
               <div className="flex justify-center mt-5">
-                <button
-                  type="submit"
-                  className="w-150 h-14 rounded-xl text-2xl cursor-pointer text-creme bg-azul-marinho hover:underline"
-                >
-                  Criar conta
-                </button>
+                {loading ? (
+                  <button
+                    disabled
+                    type="submit"
+                    className="w-150 h-14 rounded-xl text-2xl text-creme bg-gray-400"
+                  >
+                    Cadastrando...
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    className="w-150 h-14 rounded-xl text-2xl cursor-pointer text-creme bg-azul-marinho hover:underline"
+                  >
+                    Criar conta
+                  </button>
+                )}
               </div>
             </form>
 
