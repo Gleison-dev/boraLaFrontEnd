@@ -9,51 +9,52 @@ import logo from "../../assets/logo.png";
 import { useContext } from "react";
 
 export default function Sidebar() {
-  const { token } = useContext(AuthContext);
+  const { token, logout } = useContext(AuthContext);
   const isAuthenticated = token && !isTokenExpired(token);
 
   return (
     <>
       <section className="w-80 h-screen shadow-xl bg-creme">
         {isAuthenticated ? (
-          <div>
-            <div className="flex flex-col h-full p-6 ">
+          <div className="flex flex-col h-full p-6 ">
+            <div>
+              <img className="" src={logo} alt="Logo do site" />
+            </div>
+            <div className="mt-20">
+              <ul className="flex flex-col gap-3 text-preto text-2xl">
+                <NavLink to="/">
+                  <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
+                    <img src={icon_house} alt="Ícone de casa" />
+                    <li>Home</li>
+                  </div>
+                </NavLink>
+                <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
+                  <img src={icon_categories} alt="Ícone de categoria" />
+                  <li>Categorias</li>
+                </div>
+              </ul>
+              <hr className="mt-5 mb-5" />
+              <ul className="text-preto text-2xl">
+                <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
+                  <img src={icon_config} alt="Ícone de configuração" />
+                  <li>Configurações</li>
+                </div>
+              </ul>
+            </div>
+            <div className="flex flex-col gap-2 mt-auto">
+              <div className="flex justify-around items-center">
+                <div className="w-20 h-20 rounded-full bg-azul-marinho"></div>
+                <h2 className="text-lg">
+                  <strong>Thiago da Silva</strong>
+                </h2>
+              </div>
               <div>
-                <img className="" src={logo} alt="Logo do site" />
-              </div>
-              <div className="mt-20">
-                <ul className="flex flex-col gap-3 text-preto text-2xl">
-                  <NavLink to="/">
-                    <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
-                      <img src={icon_house} alt="Ícone de casa" />
-                      <li>Home</li>
-                    </div>
-                  </NavLink>
-                  <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
-                    <img src={icon_categories} alt="Ícone de categoria" />
-                    <li>Categorias</li>
-                  </div>
-                </ul>
-                <hr className="mt-5 mb-5" />
-                <ul className="text-preto text-2xl">
-                  <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
-                    <img src={icon_config} alt="Ícone de configuração" />
-                    <li>Configurações</li>
-                  </div>
-                </ul>
-              </div>
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-around items-center">
-                  <div className="w-20 h-20 rounded-full bg-azul-marinho"></div>
-                  <h2 className="text-lg">
-                    <strong>Thiago da Silva</strong>
-                  </h2>
-                </div>
-                <div>
-                  <button className="w-72 h-16 text-2xl rounded-xl cursor-pointer bg-azul-marinho text-creme hover:underline">
-                    Logout
-                  </button>
-                </div>
+                <button
+                  onClick={logout}
+                  className="w-72 h-16 text-2xl rounded-xl cursor-pointer bg-azul-marinho text-creme hover:underline"
+                >
+                  Logout
+                </button>
               </div>
             </div>
           </div>
