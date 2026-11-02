@@ -4,6 +4,7 @@ import { api } from "../services/api";
 export const AuthContext = createContext();
 
 export function Authprovider({ children }) {
+  const [user, setUser] = useState();
   const [token, setToken] = useState(localStorage.getItem("token") || null);
 
   async function login(email, password) {
@@ -30,8 +31,22 @@ export function Authprovider({ children }) {
     setToken(null);
   }
 
+  async function me() {
+    try {
+      const response = await api.get("/me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setUser(response.data.user);
+    } catch (error) {
+      const message = error.response?.data?.message || "Erro ao buscar usuário";
+      return message;
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ token, login, logout }}>
+    <AuthContext.Provider value={{ token, login, logout, user }}>
       {children}
     </AuthContext.Provider>
   );
