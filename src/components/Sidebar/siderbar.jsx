@@ -9,7 +9,7 @@ import logo from "../../assets/logo.png";
 import { useContext } from "react";
 
 export default function Sidebar() {
-  const { token, logout } = useContext(AuthContext);
+  const { token, logout, user } = useContext(AuthContext);
   const isAuthenticated = token && !isTokenExpired(token);
 
   return (
@@ -45,7 +45,7 @@ export default function Sidebar() {
               <div className="flex justify-around items-center">
                 <div className="w-20 h-20 rounded-full bg-azul-marinho"></div>
                 <h2 className="text-lg">
-                  <strong>Thiago da Silva</strong>
+                  {user?.name} {user?.last_name}
                 </h2>
               </div>
               <div>
