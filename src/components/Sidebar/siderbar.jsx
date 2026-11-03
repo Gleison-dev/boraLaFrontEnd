@@ -32,10 +32,12 @@ export default function Sidebar() {
                   <img src={icon_categories} alt="Ícone de categoria" />
                   <li>Categorias</li>
                 </div>
-                <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
-                  <img src={icon_plus} alt="Ícone de categoria" />
-                  <li>Criar evento</li>
-                </div>
+                <NavLink to="/registerEvent">
+                  <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
+                    <img src={icon_plus} alt="Ícone de categoria" />
+                    <li>Criar evento</li>
+                  </div>
+                </NavLink>
               </ul>
               <hr className="mt-5 mb-5" />
               <ul className="text-preto text-2xl">
