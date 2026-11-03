@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import icon_config from "../../assets/icon_config.png";
 import { isTokenExpired } from "../../utils/tokenUtil";
 import icon_house from "../../assets/icon_house.png";
-
+import icon_plus from "../../assets/icon_plus.png";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useContext } from "react";
@@ -31,6 +31,10 @@ export default function Sidebar() {
                 <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
                   <img src={icon_categories} alt="Ícone de categoria" />
                   <li>Categorias</li>
+                </div>
+                <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
+                  <img src={icon_plus} alt="Ícone de categoria" />
+                  <li>Criar evento</li>
                 </div>
               </ul>
               <hr className="mt-5 mb-5" />
