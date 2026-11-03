@@ -1,3 +1,4 @@
+import RegisterEvent from "./pages/RegisterEvent/registerEvent";
 import Sidebar from "./components/Sidebar/siderbar";
 import { Route, Routes } from "react-router-dom";
 import Register from "./pages/Register/register";
@@ -14,6 +15,7 @@ export default function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
+            <Route path="/registerEvent" element={<RegisterEvent />}></Route>
           </Routes>
         </main>
       </div>
