@@ -1,14 +1,47 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Input from "../../components/Input/input";
+import { api } from "../../services/api";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function RegisterEvent() {
+  const { token } = useContext(AuthContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await api.post(
+        "/createEvent",
+        {
+          title,
+          description,
+          date,
+          time,
+          location,
+          address,
+          price,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      console.log(response.data.newEvent);
+    } catch (error) {
+      const message =
+        error?.response?.data?.message || "Erro ao cadastrar evento.";
+      return console.error(message);
+    }
+  };
+
   return (
     <>
       <section className="w-399 h-screen p-10 bg-creme">
@@ -24,7 +57,10 @@ export default function RegisterEvent() {
                 </p>
               </div>
             </div>
-            <form className="grid grid-cols-2 gap-10 mt-5">
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-2 gap-10 mt-5"
+            >
               <div>
                 <label>Título</label> <br />
                 <Input
@@ -70,13 +106,24 @@ export default function RegisterEvent() {
               </div>
               <div>
                 <label>Preço (Opcional)</label> <br />
-                <Input
+                <input
+                  className="w-50 h-8 p-2 ring rounded-xl outline-none focus:ring-2 focus:ring-azul-marinho"
                   type="number"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
-                  placeholder="Valor do ingresso"
+                  placeholder={"Valor do ingresso"}
                 />
               </div>
+              <div>
+                <label>Descrição</label> <br />
+                <textarea
+                  className="w-110 p-2 ring rounded-xl outline-none focus:ring-2 focus:ring-azul-marinho"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Escreva aqui a descrição do evento"
+                ></textarea>
+              </div>{" "}
+              <br />
               <div>
                 <button className="w-111 h-14 rounded-xl text-xl cursor-pointer text-creme bg-azul-marinho hover:underline">
                   Cadastrar evento
