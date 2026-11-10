@@ -39,7 +39,7 @@ export default function Sidebar() {
                     <li>Criar evento</li>
                   </div>
                 </NavLink>
-                <NavLink to="/registerEvent">
+                <NavLink to="/myEvents">
                   <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
                     <img src={icon_ticket} alt="Ícone de categoria" />
                     <li>Meus eventos</li>
