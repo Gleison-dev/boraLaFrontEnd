@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import Register from "./pages/Register/register";
 import Home from "./pages/Home/home";
 import Login from "./pages/Login/login";
+import { PrivateRoute } from "./routes/PrivateRoute";
+import MyEvents from "./pages/MyEvents/myEvents";
 
 export default function App() {
   return (
@@ -16,6 +18,9 @@ export default function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/registerEvent" element={<RegisterEvent />}></Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="/myEvents" element={<MyEvents />}></Route>
+            </Route>
           </Routes>
         </main>
       </div>
