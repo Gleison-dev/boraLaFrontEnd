@@ -2,6 +2,7 @@ import icon_categories from "../../assets/icon_categories.png";
 import { AuthContext } from "../../context/AuthContext";
 import icon_config from "../../assets/icon_config.png";
 import { isTokenExpired } from "../../utils/tokenUtil";
+import icon_ticket from "../../assets/icon_ticket.png";
 import icon_house from "../../assets/icon_house.png";
 import icon_plus from "../../assets/icon_plus.png";
 import { NavLink } from "react-router-dom";
@@ -36,6 +37,12 @@ export default function Sidebar() {
                   <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
                     <img src={icon_plus} alt="Ícone de categoria" />
                     <li>Criar evento</li>
+                  </div>
+                </NavLink>
+                <NavLink to="/registerEvent">
+                  <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
+                    <img src={icon_ticket} alt="Ícone de categoria" />
+                    <li>Meus eventos</li>
                   </div>
                 </NavLink>
               </ul>
