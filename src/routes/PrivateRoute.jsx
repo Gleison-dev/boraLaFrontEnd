@@ -14,7 +14,7 @@ export function PrivateRoute() {
   }, [expired]);
 
   if (expired) {
-    <Navigate to="/login" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return <Outlet />;
