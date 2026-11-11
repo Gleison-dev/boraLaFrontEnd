@@ -36,7 +36,13 @@ export default function MyEvents() {
           </div>
           <div>
             {events.map((event) => (
-              <CardEvent key={event.id} />
+              <CardEvent
+                key={event.id}
+                title={event.title}
+                location={event.location}
+                date={event.date}
+                time={event.time}
+              />
             ))}
           </div>
         </div>
