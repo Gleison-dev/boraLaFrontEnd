@@ -9,7 +9,7 @@ export default function Home() {
   const handleAllEvents = async () => {
     try {
       const response = await api.get("/events");
-      console.log(response.data.events);
+      setEvents(response.data.events);
     } catch (error) {}
   };
 
@@ -40,7 +40,15 @@ export default function Home() {
             </h1>
           </div>
           <div className="mt-10">
-            <CardEvent />
+            {events.map((event) => (
+              <CardEvent
+                key={event.id}
+                title={event.title}
+                location={event.location}
+                date={event.date}
+                time={event.time}
+              />
+            ))}
           </div>
         </div>
       </section>
