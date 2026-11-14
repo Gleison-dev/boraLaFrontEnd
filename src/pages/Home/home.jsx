@@ -1,7 +1,21 @@
-import icon_search from "../../assets/icon_search.png";
 import CardEvent from "../../components/CardEvent/cardEvent";
+import icon_search from "../../assets/icon_search.png";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 
 export default function Home() {
+  const [events, setEvents] = useState([]);
+
+  const handleAllEvents = async () => {
+    try {
+      const response = await api.get("/events");
+      console.log(response.data.events);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    handleAllEvents();
+  }, []);
   return (
     <>
       <section className="w-399 h-screen p-10 bg-creme">
