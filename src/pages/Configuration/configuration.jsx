@@ -1,4 +1,7 @@
 import Input from "../../components/Input/input";
+import icon_instagram from "../../assets/icon_instagram.png";
+import icon_whatsapp from "../../assets/icon_whatsapp.png";
+import icon_email from "../../assets/icon_email.png";
 
 export default function Configuration() {
   return (
@@ -34,7 +37,14 @@ export default function Configuration() {
               </div>
             </div>
             <div className="mt-8">
-              <p>Precisa de ajuda? Entre em contato conosco!</p>
+              <div>
+                <p>Precisa de ajuda? Entre em contato conosco!</p>
+              </div>
+              <div className="flex gap-5">
+                <img className="cursor-pointer" src={icon_instagram} alt="Ícone do instagram" />
+                <img className="cursor-pointer" src={icon_whatsapp} alt="Ícone do whatsapp" />
+                <img className="cursor-pointer" src={icon_email} alt="Ícone do e-mail" />
+              </div>
             </div>
           </div>
         </div>
