@@ -48,10 +48,12 @@ export default function Sidebar() {
               </ul>
               <hr className="mt-5 mb-5" />
               <ul className="text-preto text-2xl">
-                <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
-                  <img src={icon_config} alt="Ícone de configuração" />
-                  <li>Configurações</li>
-                </div>
+                <NavLink to="/config">
+                  <div className="flex items-center gap-1 p-2 cursor-pointer rounded-xl hover:bg-gray-300">
+                    <img src={icon_config} alt="Ícone de configuração" />
+                    <li>Configurações</li>
+                  </div>
+                </NavLink>
               </ul>
             </div>
             <div className="flex flex-col gap-2 mt-auto">
