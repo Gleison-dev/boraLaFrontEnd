@@ -6,6 +6,7 @@ import Home from "./pages/Home/home";
 import Login from "./pages/Login/login";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import MyEvents from "./pages/MyEvents/myEvents";
+import Configuration from "./pages/Configuration/configuration";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/registerEvent" element={<RegisterEvent />}></Route>
             <Route element={<PrivateRoute />}>
               <Route path="/myEvents" element={<MyEvents />}></Route>
+              <Route path="/config" element={<Configuration />}></Route>
             </Route>
           </Routes>
         </main>
